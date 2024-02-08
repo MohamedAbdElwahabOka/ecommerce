@@ -6,21 +6,22 @@ import Link from 'next/link'
 function ProductItem({product}) {
 
     return (
-        <>
-
-        <h1>
-            {product?.attributes?.titel}
-        </h1>
+        <div>
 		<Image src={product?.attributes?.banner?.data?.attributes?.url}
 			alt='banner-card'
 			width={400}
 			height={350}
 			className='rounded-t-lg h-[170px] object-cover'
 			/>
-		
-        
-        
-        </>
+			<div className='p-3 '>
+				<h2 className='text[12px] font-medium'>
+					{product?.attributes?.titel}
+				</h2>
+				<h2 className='text-[10px] text-gray-400'>
+					{product?.attributes?.category}
+				</h2>
+			</div>
+        </div>
 	)
 }
 
