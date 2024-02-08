@@ -1,9 +1,13 @@
+import { Itim } from 'next/font/google'
 import React from 'react'
+import ProductItem from './ProductItem'
 
-function ProductList() {
+function ProductList({latestProducts}) {
   return (
     <div>
-      ProductList
+      {latestProducts.map(item=>(
+       < ProductItem product={item} key = {item.id}/>
+      ))}
     </div>
   )
 }
