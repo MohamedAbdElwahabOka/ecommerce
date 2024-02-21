@@ -24,7 +24,7 @@ function ProductDetails({ params }) {
 
   return (
     <div className="px-10 py-8 md:px-28">
-      <Breadcrumb />
+      <Breadcrumb path={path} product={productDetails} />
       <div className="grid justify-around grid-cols-1 gap-5 mt-10 sm:gap-0 sm:grid-cols-2">
         <ProductBanner product={productDetails} />
         <ProductInfo product={productDetails} />

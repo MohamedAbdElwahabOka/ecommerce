@@ -6,7 +6,7 @@ import Link from 'next/link'
 function ProductItem({product}) {
 
     return (
-        <div className='p-1 hover:cursor-pointer'>
+        <Link href={`/product-details/${product?.id}`} className='p-1 hover:cursor-pointer'>
 		<Image src={product?.attributes?.banner?.data?.attributes?.url}
 			alt='banner-card'
 			width={400}
@@ -24,7 +24,7 @@ function ProductItem({product}) {
 			</div>
 			<h2>{product?.attributes?.price}</h2>
 			</div>
-        </div>
+        </Link>
 	)
 }
 

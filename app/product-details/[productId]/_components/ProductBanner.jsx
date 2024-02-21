@@ -3,14 +3,19 @@ import Image from 'next/image'
 function ProductBanner({product}) {
   return (
     <div>
-     <Image 
-     src={product?.attributes?.banner?.data?.attributes?.url}
-     alt='product-details-banner'
-					width={400}
-					height={400}
-                    className='rounded-lg'
-     />
-    </div>
+
+      {product?.attributes?.banner?.data?.attributes?.url ? 
+      <Image 
+      src={product?.attributes?.banner?.data?.attributes?.url}
+      alt='product-details-banner'
+           width={400}
+           height={400}
+                     className='rounded-lg'
+      />:
+      <div className='w-[400px] h-[225px] bg-slate-300 rounded-lg animate-pulse'></div>
+      
+      }
+     </div>
   )
 }
 
