@@ -1,10 +1,12 @@
+'use client'
 import React from 'react'
+import { useUser } from '@clerk/nextjs';
 
 function Footer() {
-  return (
+  const {user} = useUser();
+  return user &&(
     <div>
-     foot
-
+     footer
     </div>
   )
 }

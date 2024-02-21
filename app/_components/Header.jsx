@@ -1,7 +1,9 @@
+'use client'
 import React from 'react'
-
+import { useUser } from '@clerk/nextjs';
 function Header() {
-  return (
+  const {user} = useUser();
+  return user && (
     <header className="bg-white shadow-sm">
   <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
     <div className="flex h-16 items-center justify-between">
