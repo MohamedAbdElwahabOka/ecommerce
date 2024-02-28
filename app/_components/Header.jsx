@@ -1,6 +1,8 @@
 'use client'
 import React from 'react'
 import { useUser } from '@clerk/nextjs';
+import { UserButton } from "@clerk/nextjs";
+import { ShoppingCart } from 'lucide-react'
 function Header() {
   const {user} = useUser();
   return user && (
@@ -49,23 +51,35 @@ function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
+
+          {!user ?
           <div className="sm:flex sm:gap-4">
+          <a
+            className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+            href="#"
+          >
+            Login
+          </a>
+
+          <div className="hidden sm:flex">
             <a
-              className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+              className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
               href="#"
             >
-              Login
+              Register
             </a>
-
-            <div className="hidden sm:flex">
-              <a
-                className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                href="#"
-              >
-                Register
-              </a>
-            </div>
           </div>
+        </div>
+
+        :
+        <div>
+            <UserButton afterSignOutUrl="/" />
+           <ShoppingCart/>
+        </div>
+      
+        
+        }
+          
 
           <div className="block md:hidden">
             <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
